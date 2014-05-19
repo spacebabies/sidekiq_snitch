@@ -1,0 +1,43 @@
+= sidekiq_snitch
+
+Rails engine to monitor your Sidekiq queue using Dead Man's Snitch.
+
+= Installation
+
+First, create an account at Dead Man's Snitch http://www.deadmanssnitch.com/
+
+Then, create a snitch. Put its value in ENV['SIDEKIQ_SNITCH_URL'].
+
+In Gemfile:
+
+    gem 'sidekiq_snitch'
+
+and run `bundle`. Deploy et voila!
+
+= FAQ
+
+Question: Why use an external system and not a simple cron job?
+
+Answer: If you use Sidekiq to run tasks in the background, you should monitor it.
+Monitoring any system using the system itself is asking for trouble. Using an external
+tool that starts to yell when something is wrong is the most sensible thing to do.
+
+You can use any old monitoring tool, but we've found that Dead Man's Snitch is
+simple and does one thing really well. It's also very useful for monitoring cron, in
+fact.
+
+Question: What is ENV?
+
+Answer: create an initializer:
+
+    ENV['SIDEKIQ_SNITCH_URL'] = "https://snitch.url.example.com"
+
+= Created by
+
+Space Babies. www.spacebabies.nl
+
+Get in touch: joost@spacebabies.nl
+
+= License
+
+MIT.
