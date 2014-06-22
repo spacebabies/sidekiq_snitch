@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     sidekiq_snitch (0.0.2)
-      rails (> 3)
-      sidekiq
+      rails (>= 3.0.0)
+      sidekiq (>= 2.5.0)
 
 GEM
   remote: https://rubygems.org/
