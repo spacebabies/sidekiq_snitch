@@ -6,7 +6,7 @@ Rails engine to monitor your Sidekiq queue using Dead Man's Snitch.
 
 First, create an account at Dead Man's Snitch http://www.deadmanssnitch.com/
 
-Then, create a snitch. Put its value in ENV['SIDEKIQ_SNITCH_URL'].
+Then, create an hourly snitch. Put its value in ENV['SIDEKIQ_SNITCH_URL'].
 
 In Gemfile:
 
