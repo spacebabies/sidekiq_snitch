@@ -1,7 +1,7 @@
 require 'sidekiq'
 require 'net/http'
 
-# A worker to contact deadmanssnitch.com every five minutes,
+# A worker to contact deadmanssnitch.com periodically,
 # thereby ensuring jobs are being performed and the system
 # is healthy.
 module Sidekiq
