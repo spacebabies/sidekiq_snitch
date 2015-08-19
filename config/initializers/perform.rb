@@ -9,6 +9,6 @@ require 'sidekiq/api'
 set = Sidekiq::ScheduledSet.new
 length = set.select {|job| job.klass == "Sidekiq::Snitch" }.length
 
-unless length > 0
+unless length > 0 || ENV['SIDEKIQ_SNITCH_URL'].blank?
   Sidekiq::Snitch.perform_async
 end

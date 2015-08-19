@@ -9,10 +9,12 @@ module Sidekiq
     include Sidekiq::Worker
 
     def perform
-      Net::HTTP.get(URI(ENV['SIDEKIQ_SNITCH_URL']))
+      if ENV['SIDEKIQ_SNITCH_URL'].present?
+        Net::HTTP.get(URI(ENV['SIDEKIQ_SNITCH_URL']))
 
-      # groundhog day!
-      Snitch.perform_in(1.hour)
+        # groundhog day!
+        Snitch.perform_in(1.hour)
+      end
     end
   end
 end
