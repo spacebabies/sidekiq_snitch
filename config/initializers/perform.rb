@@ -7,8 +7,8 @@ require 'sidekiq/api'
 # When none are found, schedule one to run immediately. The worker
 # will then take care of rescheduling itself.
 set = Sidekiq::ScheduledSet.new
-length = set.select {|job| job.klass == "Sidekiq::Snitch" }.length
+already_scheduled = set.any? {|job| job.klass == "Sidekiq::Snitch" }
 
-unless length > 0 || ENV['SIDEKIQ_SNITCH_URL'].blank?
+if ! already_scheduled && ! ENV['SIDEKIQ_SNITCH_URL'].blank?
   Sidekiq::Snitch.perform_async
 end
