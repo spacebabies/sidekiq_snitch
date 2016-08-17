@@ -1,4 +1,5 @@
 require 'sidekiq'
+require 'sidekiq/api'
 require 'net/http'
 
 # A worker to contact deadmanssnitch.com periodically,

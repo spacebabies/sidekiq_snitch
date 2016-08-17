@@ -42,6 +42,16 @@ Question: Can I turn this off in my development environment?
 Answer: Sure! Just make sure there is no value set for `ENV['SIDEKIQ_SNITCH_URL']`.
 Sidekiq Snitch only runs if it has somewhere to snitch.
 
+# Testing
+
+If you want to help develop this plugin, clone the repo and bundle to get all dependencies.
+
+Then to run the tests:
+
+```
+rspec
+```
+
 # Created by
 
 [Space Babies](https://www.spacebabies.nl/)
