@@ -2,6 +2,8 @@
 
 Rails engine to monitor your Sidekiq queue using Dead Man's Snitch.
 
+[ ![Codeship Status for spacebabies/sidekiq_snitch](https://codeship.com/projects/601f8230-46dc-0134-0bf1-568f97ef61e4/status?branch=master)](https://codeship.com/projects/169033)
+
 # Installation
 
 First, create an account at [Dead Man's Snitch](http://www.deadmanssnitch.com/).
