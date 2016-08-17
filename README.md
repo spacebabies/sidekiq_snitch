@@ -1,20 +1,22 @@
-= sidekiq_snitch
+# sidekiq_snitch
 
 Rails engine to monitor your Sidekiq queue using Dead Man's Snitch.
 
-= Installation
+# Installation
 
-First, create an account at Dead Man's Snitch http://www.deadmanssnitch.com/
+First, create an account at [Dead Man's Snitch](http://www.deadmanssnitch.com/).
 
-Then, create an hourly snitch. Put its value in ENV['SIDEKIQ_SNITCH_URL'].
+Then, create an hourly snitch. Put its value in `ENV['SIDEKIQ_SNITCH_URL']`.
 
 In Gemfile:
 
-    gem 'sidekiq_snitch'
+```
+gem 'sidekiq_snitch'
+```
 
 and run `bundle`. Deploy et voila!
 
-= FAQ
+# FAQ
 
 Question: Why use an external system and not a simple cron job?
 
@@ -30,19 +32,22 @@ Question: What is ENV?
 
 Answer: create an initializer:
 
-    ENV['SIDEKIQ_SNITCH_URL'] = "https://snitch.url.example.com"
+```
+# config/initializers/sidekiq_snitch.rb
+ENV['SIDEKIQ_SNITCH_URL'] = "https://snitch.url.example.com"
+```
 
 Question: Can I turn this off in my development environment?
 
-Answer: Sure! Just make sure there is no value set for ENV['SIDEKIQ_SNITCH_URL'].
+Answer: Sure! Just make sure there is no value set for `ENV['SIDEKIQ_SNITCH_URL']`.
 Sidekiq Snitch only runs if it has somewhere to snitch.
 
-= Created by
+# Created by
 
-Space Babies. www.spacebabies.nl
+[Space Babies](https://www.spacebabies.nl/)
 
 Get in touch: joost@spacebabies.nl
 
-= License
+# License
 
 MIT.
