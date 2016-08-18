@@ -20,6 +20,14 @@ and run `bundle`. Deploy et voila!
 
 # FAQ
 
+Question: How can I see if Sidekiq::Snitch is running and a worker is scheduled?
+
+Answer: In your Rails console, run this:
+
+```
+SidekiqSnitch.scheduled? # => returns true or false
+```
+
 Question: Why use an external system and not a simple cron job?
 
 Answer: If you use Sidekiq to run tasks in the background, you should monitor it.

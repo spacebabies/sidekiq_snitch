@@ -14,7 +14,6 @@ RSpec.describe Sidekiq::Snitch, type: :unit do
     end
 
     after do
-      Sidekiq::ScheduledSet.new.each {|worker| worker.delete }
       ENV.delete('SIDEKIQ_SNITCH_URL')
     end
 

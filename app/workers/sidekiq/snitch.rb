@@ -1,5 +1,4 @@
 require 'sidekiq'
-require 'sidekiq/api'
 require 'net/http'
 
 # A worker to contact deadmanssnitch.com periodically,
@@ -13,9 +12,8 @@ module Sidekiq
       if ENV['SIDEKIQ_SNITCH_URL'].present?
         Net::HTTP.get(URI(ENV['SIDEKIQ_SNITCH_URL']))
 
-        already_scheduled = Sidekiq::ScheduledSet.new.any? {|job| job.klass == "Sidekiq::Snitch" }
         # groundhog day!
-        Snitch.perform_in(1.hour) unless already_scheduled
+        Snitch.perform_in(1.hour) unless SidekiqSnitch.scheduled?
       end
     end
   end
