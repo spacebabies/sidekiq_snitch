@@ -2,7 +2,17 @@
 
 Rails engine to monitor your Sidekiq queue using Dead Man's Snitch.
 
-[ ![Codeship Status for spacebabies/sidekiq_snitch](https://codeship.com/projects/601f8230-46dc-0134-0bf1-568f97ef61e4/status?branch=master)](https://codeship.com/projects/169033)
+# NOT MAINTAINED
+
+I‘ve stopped maintaining this gem, since I think [OkComputer](https://github.com/sportngin/okcomputer) is a superior solution to monitoring your Sidekiq queue. You would add one for each queue, and then check the /okcomputer endpoint for everything. For Sidekiq, that would mean:
+
+``` ruby
+OkComputer::Registry.register "sidekiq - default", OkComputer::SidekiqLatencyCheck.new('default')
+OkComputer::Registry.register "sidekiq - mailers", OkComputer::SidekiqLatencyCheck.new('mailers')
+# and so on, one for each queue.
+```
+
+If you would like to maintain this repo or a fork, get in touch. All other issues and pull requests will be closed.
 
 # Installation
 
