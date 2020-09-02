@@ -20,6 +20,8 @@ First, create an account at [Dead Man's Snitch](http://www.deadmanssnitch.com/).
 
 Then, create an hourly snitch. Put its value in `ENV['SIDEKIQ_SNITCH_URL']`.
 
+By default the snitch is triggered every hour, it's possible to set less or more time setting this variable: `ENV['SIDEKIQ_SNITCH_MINUTES_DELAY']``
+
 In Gemfile:
 
 ```

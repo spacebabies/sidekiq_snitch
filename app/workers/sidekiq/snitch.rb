@@ -12,8 +12,10 @@ module Sidekiq
       if ENV['SIDEKIQ_SNITCH_URL'].present?
         Net::HTTP.get(URI(ENV['SIDEKIQ_SNITCH_URL']))
 
+        minutes = (ENV['SIDEKIQ_SNITCH_MINUTES_DELAY'] || 60).to_i.minutes
+
         # groundhog day!
-        Snitch.perform_in(1.hour) unless SidekiqSnitch.scheduled?
+        Snitch.perform_in(minutes) unless SidekiqSnitch.scheduled?
       end
     end
   end
